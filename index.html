@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>もつんごりらの趣味部屋</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f0f0; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; background-color: #fff; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        .section { margin-bottom: 20px; }
+        .follow-btn { padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        .follow-btn:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>もつんごりらの趣味部屋</h1>
+        <p>自己紹介: もつんごりら</p>
+        <p>目標: 経営者になって世界と戦う</p>
+        <div class="section">
+            <a href="subscription.html">サブスクリプションページ</a>
+        </div>
+        <div class="section">
+            <a href="workout.html">筋トレ</a>
+        </div>
+        <div class="section">
+            <a href="book_reviews.html">読書感想文</a>
+        </div>
+        <div class="section">
+            <a href="english_study.html">英語学習</a>
+        </div>
+        <button class="follow-btn" onclick="follow()">フォローする</button>
+        <p id="follower-count">フォロワー: 0人</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', loadFollowers);
+
+        function loadFollowers() {
+            const followers = localStorage.getItem('followers') || 0;
+            document.getElementById('follower-count').textContent = 'フォロワー: ' + followers + '人';
+        }
+
+        function follow() {
+            let followers = parseInt(localStorage.getItem('followers')) || 0;
+            followers++;
+            localStorage.setItem('followers', followers);
+            document.getElementById('follower-count').textContent = 'フォロワー: ' + followers + '人';
+        }
+    </script>
+</body>
+</html>
